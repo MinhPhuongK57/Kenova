@@ -9,6 +9,7 @@ import Careers from "./components/pages/careers/Careers";
 import Contact from "./components/pages/contact-us/Contact";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import ScrollToTop from "./components/scroll-to-top/ScrollToTop";
 
 const Kenova = () => {
   return (
@@ -28,6 +29,7 @@ const Kenova = () => {
           <Route exact path="/contact-us" element={<Contact />}></Route>
         </Routes>
         <Footer />
+        <ScrollToTop />
       </Fragment>
     </Router>
   );

@@ -59,7 +59,9 @@ const Company = () => {
           key={index}
           src={listCompany.image}
           alt={listCompany.image}
-          className="company-content"
+          className="company-content  wow animate__fadeInUp"
+          data-wow-duration="0.8s"
+          data-wow-delay="0.3s"
         ></img>
       );
     }

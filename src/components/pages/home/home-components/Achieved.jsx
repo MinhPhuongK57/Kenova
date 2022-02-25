@@ -45,12 +45,27 @@ const Achieved = () => {
       result = (
         <div key={index} className="achieved-content">
           <Link to="/cases" className="achieved-content--image">
-            <img src={listAchieved.image} alt={listAchieved.image}></img>
+            <img
+              src={listAchieved.image}
+              alt={listAchieved.image}
+              className="wow animate__fadeInUp"
+              data-wow-duration="0.8s"
+              data-wow-delay="0.4s"
+            ></img>
           </Link>
-          <Link to="/cases" className="achieved-content--title">
+          <Link
+            to="/cases"
+            className="achieved-content--title wow animate__fadeInUp"
+            data-wow-duration="0.8s"
+            data-wow-delay="0.3s"
+          >
             {listAchieved.title}
           </Link>
-          <div className="achieved-content--desc">
+          <div
+            className="achieved-content--desc wow animate__fadeInUp"
+            data-wow-duration="0.8s"
+            data-wow-delay="0.3s"
+          >
             {listAchieved.description}
           </div>
         </div>
@@ -60,7 +75,11 @@ const Achieved = () => {
   });
   return (
     <div className="home__achieved">
-      <div className="home__achieved--heading">
+      <div
+        className="home__achieved--heading wow animate__fadeInUp"
+        data-wow-duration="0.8s"
+        data-wow-delay="0.3s"
+      >
         <Link to="/cases" className="achieved-title">
           What We Achieved
         </Link>

@@ -52,7 +52,12 @@ const ExpertAt = () => {
     let result = "";
     if (listExpertAt.status) {
       result = (
-        <div key={index} className="expertat-content">
+        <div
+          key={index}
+          className="expertat-content wow animate__fadeInUp"
+          data-wow-duration="0.8s"
+          data-wow-delay="0.3s"
+        >
           <img
             src={listExpertAt.image}
             alt={listExpertAt.image}
@@ -72,7 +77,13 @@ const ExpertAt = () => {
   });
   return (
     <div className="home__expertat">
-      <div className="home__expertat--title">What We Are Expert At</div>
+      <div
+        className="home__expertat--title wow animate__fadeInUp"
+        data-wow-duration="0.8s"
+        data-wow-delay="0.3s"
+      >
+        What We Are Expert At
+      </div>
       <div className="home__expertat--grid">{elements}</div>
     </div>
   );

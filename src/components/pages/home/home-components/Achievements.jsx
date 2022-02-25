@@ -77,7 +77,11 @@ const Achievements = () => {
   });
   return (
     <div>
-      <div className="home__achievement">
+      <div
+        className="home__achievement wow animate__fadeInUp"
+        data-wow-duration="0.8s"
+        data-wow-delay="0.3s"
+      >
         <div className="home__achievement--title">
           <div></div>
           <h4>Our Awards & Achievements</h4>
