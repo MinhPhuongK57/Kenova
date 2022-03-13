@@ -76,7 +76,7 @@ const ExpertAt = () => {
     return result;
   });
   return (
-    <div className="home__expertat">
+    <section className="home__expertat container__padding">
       <div
         className="home__expertat--title wow animate__fadeInUp"
         data-wow-duration="0.8s"
@@ -85,7 +85,7 @@ const ExpertAt = () => {
         What We Are Expert At
       </div>
       <div className="home__expertat--grid">{elements}</div>
-    </div>
+    </section>
   );
 };
 export default ExpertAt;

@@ -13,6 +13,7 @@ $c_secondary:#81879a;
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+
 }
 
 body {
@@ -22,11 +23,51 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 
+    /*-----Scrollbar Start-----*/
+    &::-webkit-scrollbar {
+        max-width: 1.5rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgb(200, 200, 200);
+
+        &:hover {
+            background: rgb(171, 171, 171);
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        background: linear-gradient(rgb(229, 229, 229), rgb(241, 241, 241));
+    }
+
+    /*-----Scrollbar End-----*/
+    /*-----Selection Start-----*/
+    ::selection {
+        color: #fff;
+        background-color: rgb(58, 133, 255);
+    }
+
+    ::-webkit-selection {
+        color: #fff;
+        background-color: rgb(58, 133, 255);
+    }
+
+    ::-moz-selection {
+        color: #fff;
+        background-color: rgb(58, 133, 255);
+    }
+
+    /*-----Selection End-----*/
+
+
+
 }
 
 a {
     outline: none;
 }
+
+
 
 .container {
     position: relative;
@@ -37,7 +78,6 @@ a {
 .container__padding {
     position: relative;
     width: 100%;
-    top: 4rem;
     width: 100%;
     max-width: 1140px;
     margin: 0 auto;
@@ -63,6 +103,7 @@ a {
     background-color: #fff;
     color: $c_primary;
     cursor: pointer;
+    z-index: 9999;
     border-radius: 4rem;
     outline: none;
     transition: all 0.2s linear;
@@ -88,17 +129,19 @@ a {
     width: 100%;
     box-shadow: rgba(93, 94, 96, 0.1) 0px 15px 20px -10px;
     position: fixed;
-    z-index: 99999;
+    z-index: 9999999;
     top: 0;
     left: 0;
     right: 0;
     height: 8rem;
+    background: #fff;
 
 }
 
 .navbar {
     max-width: 1140px;
     height: 100%;
+    z-index: 999;
     line-height: 2.4rem;
     background-color: #fff;
     margin: 0 auto;
@@ -338,7 +381,7 @@ a {
 /*---Menu Responsive Start---*/
 .navigation {
     display: none;
-    height: 8rem;
+    height: 6rem;
     width: 100%;
     position: fixed;
     z-index: 99999;
@@ -347,38 +390,30 @@ a {
     right: 0;
     line-height: 2.4rem;
     background-color: #fff;
-    margin: 0 auto;
+    box-shadow: rgba(104, 106, 108, 0.1) 0px 12px 15px 0px;
 
 
     &__menu {
-        box-shadow: rgba(146, 149, 154, 0.1) 0px 12px 10px -10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        top: 2rem;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
         left: 1rem;
         right: 1rem;
+
+        .navbar__logo {
+            font-size: 1.7rem;
+        }
     }
 }
 
 #menuToggle {
-    display: block;
     position: absolute;
     -webkit-user-select: none;
     user-select: none;
     right: 3rem;
-    top: 1rem;
+    top: 2rem;
 
-    .menu__link {
-        white-space: nowrap;
-        color: $c_primary;
-        transition: color 0.3s ease;
 
-        &:hover {
-            transition: color 0.3s ease;
-            text-shadow: #202b50 0px 0px 0px;
-        }
-    }
 
     input {
         cursor: pointer;
@@ -411,9 +446,9 @@ a {
 
     span {
         display: block;
-        width: 3rem;
-        height: 0.3rem;
-        margin-bottom: 0.5rem;
+        width: 2.6rem;
+        height: 0.2rem;
+        margin-bottom: 0.6rem;
         position: relative;
         background: $c_primary;
         border-radius: 3px;
@@ -431,34 +466,64 @@ a {
             transform-origin: 0% 100%;
         }
     }
+
+
 }
 
-input:checked~#menu {
-    display: block;
-}
-
-#menu {
+.menu {
     display: none;
     position: absolute;
-    text-align: center;
+    background-color: #fff;
+    z-index: 999999;
     width: 100%;
+    height: 100%;
     min-height: 100vh;
-    top: 5rem;
-    left: 0;
-    background: #fff;
-    -webkit-font-smoothing: antialiased;
-    transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-}
+    right: 0;
+    left: -1rem;
 
-#menu li {
-    padding: 1rem 0;
-    font-size: 1.4rem;
+    &__link {
+        font-weight: 600;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        color: $c_primary;
+        transition: color 0.3s ease;
+
+        &:last-child {
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 0 2.5rem;
+            border-radius: 0.4rem;
+            background-color: $c_primary;
+            box-shadow: #cbd0d6 0px 6px 12px 0px;
+            display: inline-block;
+            text-align: center;
+            padding: 0 auto;
+            border: 1px solid $c_primary;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #fff;
+                color: $c_primary;
+                transition: all 0.3s ease-in;
+            }
+        }
+
+        &:hover {
+            transition: color 0.3s ease;
+            text-shadow: #202b50 0px 0px 0px;
+        }
+    }
 }
 
 #menuToggle input:checked~ul {
-    transform: none;
+    display: block;
+    bottom: 0;
 }
 
 /*---Menu Responsive End---*/
@@ -468,34 +533,25 @@ input:checked~#menu {
 .home {
     position: relative;
     width: 100%;
-    top: 4rem;
-
 
     &__header {
-        height: 450px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center 15rem;
+        background-image: url("https://fabatechnology.com/home-page/background-herosection.svg");
+        height: 570px;
         color: $c_primary;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
 
-        &--image {
-            border-radius: 0.3rem;
-            position: absolute;
-            width: 100%;
-            max-width: 100%;
-            height: 500px;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
         &--heading {
-            margin-top: 2rem;
             font-weight: 600;
             text-align: center;
-            font-size: 8rem;
-            line-height: 9rem;
+            font-size: 7.5rem;
+            line-height: 8rem;
 
             p:first-child {
                 padding-bottom: 1rem;
@@ -545,7 +601,7 @@ input:checked~#menu {
             font-size: 2rem;
             justify-content: center;
             line-height: 3rem;
-            margin: 8rem 0 2rem 0;
+            margin-bottom: 2rem;
             flex-direction: row;
             font-weight: 600;
             color: $c_primary;
@@ -657,10 +713,15 @@ input:checked~#menu {
 
     &__provide {
         display: flex;
+        background-image: url("https://fabatechnology.com/home-page/home-service-bg.svg");
+        background-position: 200px 50px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
-        height: 500px;
+        width: 100%;
+        height: 600px;
         padding-top: 18rem;
 
         &--left {
@@ -735,6 +796,8 @@ input:checked~#menu {
         }
 
         &--right {
+
+            height: 100%;
             width: 70%;
             max-width: 760px;
             display: flex;
@@ -811,10 +874,50 @@ input:checked~#menu {
     }
 
     &__howwedo {
+        width: 100%;
         position: relative;
-        height: 800px;
-        background-color: #101730;
-        padding: 320px 0;
+
+
+
+        &--body {
+            margin: 25rem 0 35rem;
+            width: 100%;
+            position: relative;
+            height: 400px;
+            padding: 5rem 0;
+            background-color: #101730;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-image: url('https://fabatechnology.com/home-page/bg-how-we-do-top.svg');
+                height: 100%;
+                width: 100%;
+                top: -100%;
+                left: 0;
+                right: 0;
+                z-index: 1;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center bottom;
+            }
+
+            &::after {
+                content: "";
+                z-index: 1;
+                position: absolute;
+                background-image: url('https://fabatechnology.com/home-page/bg-how-we-do-bottom.svg');
+                height: 100%;
+                width: 100%;
+                bottom: -100%;
+                left: 0;
+                right: 0;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center bottom;
+            }
+        }
+
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -831,13 +934,43 @@ input:checked~#menu {
         }
 
         &--left {
+            z-index: 5;
             display: flex;
             width: 70%;
             max-width: 800px;
         }
 
         &--right {
+            z-index: 5;
             width: 30%;
+            position: relative;
+            height: 100%;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -13rem;
+                right: 35%;
+                height: 4.5rem;
+                width: 4.5rem;
+                background-color: #04A8F5;
+                border-radius: 0.2rem;
+                z-index: 3;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: -15.5rem;
+                right: 25%;
+                height: 2.3rem;
+                width: 2.3rem;
+                background-color: transparent;
+                border: 1.5px solid #04A8F5;
+                border-radius: 0.2rem;
+                z-index: 3;
+
+            }
 
             .howwedo-title {
                 font-size: 4.8rem;
@@ -852,6 +985,7 @@ input:checked~#menu {
                     height: 12rem;
                     width: 0.3rem;
                     left: 0;
+                    z-index: 2;
                     bottom: 7rem;
                     border-radius: 1rem;
                     background-image: linear-gradient(to top, #101730, #fafbff);
@@ -860,6 +994,7 @@ input:checked~#menu {
                 &::before {
                     content: "";
                     position: absolute;
+                    z-index: 2;
                     height: 12rem;
                     width: 0.3rem;
                     left: 0;
@@ -968,7 +1103,22 @@ input:checked~#menu {
     }
 
     &__expertat {
-        padding-bottom: 200px;
+        padding-bottom: 20rem;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-image: url("https://fabatechnology.com/home-page/bg-what-we-experts.svg");
+            background-position: top right;
+            background-size: 45% 100%;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+            top: -40%;
+            right: -10%;
+        }
+
 
         &--title {
             font-size: 4.8rem;
@@ -976,19 +1126,21 @@ input:checked~#menu {
             font-weight: 700;
             line-height: 57.6px;
             margin-bottom: 5rem;
-            margin-top: 15rem;
+            margin-top: 25rem;
             position: relative;
 
             &::after {
                 content: "";
+                z-index: 0;
                 position: absolute;
                 height: 12rem;
                 width: 0.2rem;
                 left: 0;
-                bottom: 11rem;
+                bottom: 5rem;
                 border-radius: 1rem;
                 background-image: linear-gradient(to top, #fafbff, #e7e7e9);
             }
+
         }
 
         &--grid {
@@ -1052,6 +1204,10 @@ input:checked~#menu {
                     bottom: 11rem;
                     border-radius: 1rem;
                     background-image: linear-gradient(to top, #fafbff, #e7e7e9);
+                }
+
+                img {
+                    display: none;
                 }
             }
 
@@ -1144,6 +1300,7 @@ input:checked~#menu {
     &__company {
         padding-bottom: 100px;
 
+
         &--grid {
             display: grid;
             grid-template-columns: auto auto auto auto;
@@ -1167,22 +1324,74 @@ input:checked~#menu {
         background-image: url("https://fabatechnology.com/home-page/retangle.svg");
         background-repeat: no-repeat;
         background-position: 100% 0%;
-        border-radius: 0;
+        border-radius: 1rem;
         background-size: cover;
         padding: 5rem 0;
         color: #fff;
+        position: relative;
+        height: 350px;
+
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 18%;
+            right: -1.1rem;
+            height: 3.2rem;
+            width: 3.2rem;
+            background-color: #04A8F5;
+            border-radius: 0.2rem;
+            z-index: 3;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 30%;
+            left: 1.5rem;
+            height: 3.2rem;
+            width: 3.2rem;
+            background-color: #04A8F5;
+            border-radius: 0.2rem;
+            z-index: 3;
+
+        }
+
+        &--image {
+            position: absolute;
+
+            &:first-child {
+                width: 150%;
+                height: 100%;
+                z-index: -1;
+                top: -30%;
+                right: -40%;
+                left: -30%;
+                display: none;
+            }
+
+            &:last-child {
+                width: 150%;
+                height: 100%;
+                z-index: -1;
+                top: 0;
+                right: -40%;
+                left: -30%;
+            }
+        }
 
         &--title {
             text-align: center;
             font-size: 4.8rem;
             font-weight: 600;
             margin: 0 0 2rem;
-            line-height: 5.5rem;
+
         }
 
         &--desc {
             font-size: 1.4em;
-            margin: 1.5rem 0 2.5rem 0;
+            line-height: 5rem;
+            margin: 1rem 0 2.5rem 0;
         }
 
         &--button {
@@ -1200,7 +1409,7 @@ input:checked~#menu {
             transition: all 0.3s ease-in-out;
 
             &:hover {
-                background-color: $c_primary;
+                background-color: transparent;
                 color: #fff;
                 transition: all 0.3s ease-in;
             }
@@ -1265,7 +1474,7 @@ input:checked~#menu {
             }
 
             .menu-links {
-                display: inline-flex;
+                display: grid;
                 flex-direction: column;
                 align-items: flex-start;
                 line-height: 3.5rem;
@@ -1301,6 +1510,10 @@ input:checked~#menu {
                 }
             }
         }
+
+        &--link {
+            display: none;
+        }
     }
 
     &__copyright {
@@ -1335,30 +1548,34 @@ input:checked~#menu {
     body {
         width: 100%;
         max-width: 768px;
-        padding: 0 1.5rem;
     }
 
-    .navbar {
+    .nav {
         display: none;
     }
 
     .navigation {
         display: block;
 
-
         &__menu {
             position: relative;
-            height: 5rem;
-            line-height: 5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            height: 6rem;
             max-width: 100%;
+            line-height: 6rem;
         }
+
+        #menu {
+            display: inline-block;
+            width: 100%;
+            background-color: #fff;
+        }
+
     }
 
     .home {
         &__header {
+            padding: 0 1.5rem;
+
             &--heading {
                 font-size: 4.2rem;
                 line-height: 4rem;
@@ -1381,6 +1598,7 @@ input:checked~#menu {
         &__achievement {
             display: flex;
             justify-content: center;
+            padding: 0 1.5rem;
 
             &--items {
                 display: grid;
@@ -1440,6 +1658,8 @@ input:checked~#menu {
             flex-direction: column;
             height: auto;
             margin-bottom: 4rem;
+            margin-top: 10rem;
+            padding: 0 1.5rem;
 
 
 
@@ -1499,8 +1719,21 @@ input:checked~#menu {
             display: flex;
             flex-direction: column-reverse;
             justify-content: flex-start;
+            align-items: center;
             height: 100%;
-            padding: 4rem 0;
+            padding: 0 1.5rem;
+
+            &--body {
+                width: 100%;
+                margin: 40rem 0 10rem;
+                height: 500px;
+                padding: 10rem 0;
+
+                &::after {
+                    bottom: -54%;
+                }
+            }
+
 
             &--left {
                 width: 100%;
@@ -1560,5 +1793,212 @@ input:checked~#menu {
             }
         }
 
+        &__expertat {
+            overflow: hidden;
+            padding: 0 1.5rem;
+            margin-bottom: 8rem;
+
+            &--title {
+                font-size: 3.7rem;
+                font-weight: 600;
+
+            }
+
+            &--grid {
+                grid-template-columns: 1fr;
+
+                .expertat-content {
+                    &--right {
+                        .expertat-title {
+                            font-size: 2rem;
+                        }
+
+                        .expertat-desc {
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__achieved {
+            padding: 0 1.5rem;
+            margin-bottom: 20rem;
+
+            &--heading {
+                .achieved-title {
+                    display: flex;
+                    align-items: center;
+                    font-size: 4rem;
+                    font-weight: 600;
+                    white-space: nowrap;
+
+                    img {
+                        display: block;
+                        width: 3.3rem;
+                        height: 2.8rem;
+                        padding-left: 1rem;
+                    }
+                }
+
+                .achieved-button {
+                    display: none;
+                }
+            }
+
+            &--grid {
+                grid-template-columns: 1fr;
+                grid-gap: 8rem 0;
+
+                .achieved-content {
+                    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+                    height: 110%;
+                    border-radius: 1rem;
+
+                    &--image {
+
+                        img {
+                            transform: scale(1);
+
+                            &:hover {
+                                transition: all 0.3s ease-in-out;
+                                transform: scale(1);
+                            }
+                        }
+                    }
+
+                    &--title {
+                        padding-left: 2rem;
+                        padding-right: 2rem;
+                        font-size: 2.2rem;
+                    }
+
+                    &--desc {
+                        padding-left: 2rem;
+                        padding-right: 2rem;
+                    }
+                }
+            }
+        }
+
+        &__company {
+            padding: 0 1.5rem;
+            width: 100%;
+
+            &--grid {
+                grid-template-columns: 1fr 1fr;
+
+                .company-content {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0.5rem;
+                }
+            }
+        }
+
+        &__message {
+            overflow: hidden;
+            max-width: 100%;
+            margin-left: -1.5rem;
+            margin-bottom: 15rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &--title {
+                display: flex;
+                font-size: 2.5rem;
+
+                p:last-child {
+                    padding-left: 0.5rem;
+                }
+            }
+
+            &--desc {
+                line-height: 2.5rem;
+            }
+
+            &--button {
+                padding: 1.2rem 2.5rem;
+            }
+        }
+
+    }
+
+    .footer {
+        width: 100%;
+        padding: 0 1.5rem;
+
+        &__content {
+            display: flex;
+            align-items: start;
+            justify-content: flex-start;
+            flex-direction: column;
+
+            &--social {
+                padding-bottom: 3rem;
+
+                .social-desc {
+                    font-size: 1.4rem;
+                    white-space: nowrap;
+                }
+
+                .social-links {
+                    display: none;
+                }
+            }
+
+            &--menu {
+                margin-bottom: 3rem;
+
+                .menu-links {
+                    display: grid;
+                    grid-template-columns: (2, 1fr);
+                    grid-template-areas:
+                        "item1 item2"
+                        "item3 item3"
+                    ;
+                    grid-gap: 1rem 18rem;
+                    justify-items: start;
+                    grid-auto-flow: column;
+
+                    &--item {
+                        &:nth-child(1) {
+                            grid-area: item1;
+                        }
+
+                        &:nth-child(2) {
+                            grid-area: item2;
+                        }
+
+                        &:nth-child(3) {
+                            grid-area: item3;
+                        }
+                    }
+
+                }
+
+            }
+
+            &--contact {
+                margin-bottom: 3rem;
+            }
+
+            &--link {
+                display: inline-block;
+                padding-bottom: 2rem;
+
+                img {
+                    margin-right: 2rem;
+                }
+            }
+
+        }
+
+        &__copyright {
+            text-align: center;
+            padding-bottom: 3rem;
+            font-size: 1.4rem;
+        }
     }
 }

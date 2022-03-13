@@ -76,19 +76,17 @@ const Achievements = () => {
     return result;
   });
   return (
-    <div>
-      <div
-        className="home__achievement wow animate__fadeInUp"
-        data-wow-duration="0.8s"
-        data-wow-delay="0.3s"
-      >
-        <div className="home__achievement--title">
-          <div></div>
-          <h4>Our Awards & Achievements</h4>
-        </div>
-        <div className="home__achievement--items">{elements}</div>
+    <section
+      className="home__achievement wow animate__fadeInUp container__padding"
+      data-wow-duration="0.8s"
+      data-wow-delay="0.3s"
+    >
+      <div className="home__achievement--title">
+        <div></div>
+        <h4>Our Awards & Achievements</h4>
       </div>
-    </div>
+      <div className="home__achievement--items">{elements}</div>
+    </section>
   );
 };
 

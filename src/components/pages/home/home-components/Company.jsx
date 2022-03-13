@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 const Company = () => {
   const listCompanies = [
     {
@@ -68,9 +67,9 @@ const Company = () => {
     return result;
   });
   return (
-    <div className="home__company">
+    <section className="home__company container__padding">
       <div className="home__company--grid">{elements}</div>
-    </div>
+    </section>
   );
 };
 

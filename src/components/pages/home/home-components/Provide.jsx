@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Provide = () => {
   return (
-    <div className="home__provide">
+    <section className="home__provide container__padding">
       <div
         className="home__provide--left wow animate__fadeInUp"
         data-wow-duration="0.8s"
@@ -62,7 +62,7 @@ const Provide = () => {
           </div>
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

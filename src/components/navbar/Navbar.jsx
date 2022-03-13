@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import "../../scss/kenova.css";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+function Navbar(props) {
+  const [isActive, setActive] = useState(false);
+
+  const toggleClass = () => {
+    setActive(!isActive);
+  };
   return (
-    <div className="container container__body">
+    <div div className="container container__body">
       <nav className="nav">
         <div className="navbar">
           <Link to="/" className="navbar__logo">
@@ -84,13 +89,16 @@ const Navbar = () => {
             <p> K </p> <p> KENOVA </p> <p> Technology </p>
           </Link>
 
-          <div id="menuToggle">
+          <div
+            id="menuToggle"
+            className={isActive ? "menu" : null}
+            onClick={toggleClass}
+          >
             <input type="checkbox" />
             <span></span>
             <span></span>
             <span></span>
-
-            <ul id="menu">
+            <ul className="menu">
               <Link to="/devops-service" className="menu__link">
                 <li>Devops-service</li>
               </Link>
@@ -112,6 +120,6 @@ const Navbar = () => {
       </nav>
     </div>
   );
-};
+}
 
 export default Navbar;

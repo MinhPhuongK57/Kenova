@@ -18,9 +18,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="container container__padding" componentDidMount>
-        <section className="home">
-          <Header s />
+      <div className="container" componentDidMount>
+        <main className="home">
+          <Header />
           <Achievements />
           <Provide />
           <HowWeDo />
@@ -28,7 +28,7 @@ class Home extends Component {
           <Achieved />
           <Company />
           <Message />
-        </section>
+        </main>
       </div>
     );
   }

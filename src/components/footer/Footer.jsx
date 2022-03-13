@@ -77,6 +77,20 @@ const Footer = () => {
               </Link>
             </div>
           </div>
+          <div className="footer__content--link">
+            <Link to="/">
+              <img
+                src="https://fabatechnology.com/_next/image?url=%2Ficons%2Ficon-social-fb.svg&w=32&q=100"
+                alt="https://fabatechnology.com/_next/image?url=%2Ficons%2Ficon-social-fb.svg&w=32&q=100"
+              />
+            </Link>
+            <Link to="/">
+              <img
+                src="https://fabatechnology.com/_next/image?url=%2Ficons%2Ficon-social-linkedin.svg&w=32&q=100"
+                alt="https://fabatechnology.com/_next/image?url=%2Ficons%2Ficon-social-linkedin.svg&w=32&q=100"
+              />
+            </Link>
+          </div>
         </div>
         <div className="footer__copyright">
           Copyright © 2022 Faba Technology. All rights reserved.

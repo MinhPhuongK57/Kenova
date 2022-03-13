@@ -2,7 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Message = () => {
   return (
-    <div className="home__message message__body">
+    <section className="home__message">
+      <img
+        className="home__message--image"
+        src="https://fabatechnology.com/home-page/background-herosection.svg"
+        alt="https://fabatechnology.com/home-page/background-herosection.svg"
+      />
+      <img
+        className="home__message--image"
+        src="https://fabatechnology.com/home-page/bg-let-work-together.svg"
+        alt="https://fabatechnology.com/home-page/bg-let-work-together.svg"
+      />
       <div
         className="home__message--title wow animate__fadeInUp"
         data-wow-duration="0.8s"
@@ -26,7 +36,7 @@ const Message = () => {
       >
         message us
       </Link>
-    </div>
+    </section>
   );
 };
 

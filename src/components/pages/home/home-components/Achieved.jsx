@@ -74,7 +74,7 @@ const Achieved = () => {
     return result;
   });
   return (
-    <div className="home__achieved">
+    <section className="home__achieved container__padding">
       <div
         className="home__achieved--heading wow animate__fadeInUp"
         data-wow-duration="0.8s"
@@ -82,13 +82,17 @@ const Achieved = () => {
       >
         <Link to="/cases" className="achieved-title">
           What We Achieved
+          <img
+            src="https://fabatechnology.com/_next/image?url=%2Ficons%2Ficon-arrow-right-big.svg&w=32&q=100"
+            alt="https://fabatechnology.com/_next/image?url=%2Ficons%2Ficon-arrow-right-big.svg&w=32&q=100"
+          />
         </Link>
         <Link to="/cases" className="achieved-button">
           learn more
         </Link>
       </div>
       <div className="home__achieved--grid">{elements}</div>
-    </div>
+    </section>
   );
 };
 
